@@ -1,0 +1,103 @@
+version: 2
+
+models:
+  - name: stg_sales_territory_data
+    columns: 
+      - name: sales_territory_key
+        tests:
+          - unique
+          - not_null
+      - name: region
+        tests:
+          - not_null
+      - name: country
+        tests:
+          - not_null
+      - name: group_name
+        tests:
+          - not_null
+
+  - name: stg_customer_data
+    columns:
+      - name: customer_key
+        tests:
+          - not_null
+
+  - name: stg_date_data
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+      - name: date
+        tests:
+          - unique
+
+  - name: stg_product_data
+    columns:
+      - name: productkey
+        tests:
+          - unique
+          - not_null
+      - name: sku
+        tests:
+          - not_null
+
+  - name: stg_reseller_data
+    columns:
+      - name: resellerkey
+        tests:
+          - unique
+          - not_null
+      - name: reseller_id
+        tests:
+          - unique
+
+  - name: stg_sales_data
+    columns:
+      - name: salesorderlinekey
+        tests:
+          - unique
+          - not_null
+      - name: resellerkey
+        tests:
+          - not_null
+      - name: customerkey
+        tests:
+          - not_null
+      - name: productkey
+        tests:
+          - not_null
+      - name: orderdatekey
+        tests:
+          - not_null
+      - name: duedatekey
+        tests:
+          - not_null
+      - name: shipdatekey
+        tests:
+          - not_null
+      - name: salesterritorykey
+        tests:
+          - not_null
+      - name: orderquantity
+        tests:
+          - not_null
+      - name: unitprice
+        tests:
+          - not_null
+      - name: extendedamount
+        tests:
+          - not_null
+      - name: discountpercentage
+        tests:
+          - not_null
+      - name: productstandardcost
+        tests:
+          - not_null
+      - name: totalproductcost
+        tests:
+          - not_null
+      - name: salesamount
+        tests:
+          - not_null
