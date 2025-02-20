@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: stg_sales_territory_data
+  - name: int_sales_territory_data
     columns: 
-      - name: sales_territory_key
+      - name: salesterritorykey
         tests:
           - unique
           - not_null
@@ -17,13 +17,13 @@ models:
         tests:
           - not_null
 
-  - name: stg_customer_data
+  - name: int_customer_data
     columns:
-      - name: customer_key
+      - name: customerkey
         tests:
           - not_null
 
-  - name: stg_date_data
+  - name: int_date_data
     columns:
       - name: date_key
         tests:
@@ -33,7 +33,7 @@ models:
         tests:
           - unique
 
-  - name: stg_product_data
+  - name: int_product_data
     columns:
       - name: productkey
         tests:
@@ -43,7 +43,7 @@ models:
         tests:
           - not_null
 
-  - name: stg_reseller_data
+  - name: int_reseller_data
     columns:
       - name: resellerkey
         tests:
@@ -53,7 +53,7 @@ models:
         tests:
           - unique
 
-  - name: stg_sales_data
+  - name: int_sales_data
     columns:
       - name: salesorderlinekey
         tests:
