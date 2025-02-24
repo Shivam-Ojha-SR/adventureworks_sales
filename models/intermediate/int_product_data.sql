@@ -4,11 +4,11 @@ with product_data as (
         sku,
         product,
         cast(
-            replace(replace(standardcost, '$', ''), ',', '') as float
+            replace(replace(standard_cost, '$', ''), ',', '') as float
         ) as standardcost,
         color,
         cast(
-            replace(replace(listprice, '$', ''), ',', '') as float
+            replace(replace(list_price, '$', ''), ',', '') as float
         ) as listprice,
         model,
         subcategory,
