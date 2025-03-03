@@ -1,15 +1,17 @@
-with sales_aggregates as(
-    SELECT * FROM {{ ref('int_sales_aggregates') }}
-),
+with
+    sales_data as (select * from {{ ref("stg_sales_data") }}),
 
-product_performance AS (
-    SELECT 
-        product_id,
-        region_id,
-        ROUND(SUM(total_revenue), 3) AS total_revenue,
-        SUM(total_quantity) AS total_quantity,
-        RANK() OVER (PARTITION BY region_id ORDER BY SUM(total_revenue) DESC) AS sales_rank
-    FROM sales_aggregates
-    GROUP BY product_id, region_id
-)
-SELECT * FROM product_performance
+    product_performance as (
+        select
+            sales_data.salesterritorykey,
+            sales_data.productkey,
+            round(sum(sales_data.salesamount), 3) as total_sales,
+            rank() over (
+                partition by sales_data.salesterritorykey
+                order by sum(sales_data.salesamount) desc
+            ) as sales_rank
+        from sales_data
+        group by sales_data.salesterritorykey, sales_data.productkey
+    )
+select *
+from product_performance
